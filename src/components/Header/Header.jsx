@@ -6,13 +6,13 @@ let Header = () => {
     return (
         <div className={HeaderCss.Header}>
             <div>
-                <a href={'home'}>
+                <a href={'/'}>
                     <img className={HeaderCss.iconLogo} src={WalletLogo} alt={'Wallet logo'}/>
                 </a>
             </div>
             <ul className={HeaderCss.navigation}>
                 <li><a href={'wallet'}>{'Wallet'}</a></li>
-                <li><a href={'home'}>{'Home'}</a></li>
+                <li><a href={'/'}>{'Home'}</a></li>
             </ul>
         </div>
     );

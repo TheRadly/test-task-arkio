@@ -1,0 +1,43 @@
+.wallet {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+.walletBox {
+    width: 80%;
+    background-color: #e7e7e7;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.headerWallet {
+    width: 70%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    border-bottom: 1px solid black;
+    margin-bottom: 50px;
+    padding-bottom: 25px;
+}
+.firstLevel {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+.importButton {
+    color: black;
+    padding: 7px 15px;
+    text-transform: uppercase;
+    text-decoration:none;
+    text-align:center;
+    display: block;
+    background-image: linear-gradient(to left,transparent,transparent 50%, #737373 50%, #404040);
+    background-position: 100% 0;
+    background-size: 200% 100%;
+    transition: all .25s ease-in;
+}
+.importButton:hover{
+    text-decoration: none;
+    background-position: 0 0;
+    color: white;
+}
