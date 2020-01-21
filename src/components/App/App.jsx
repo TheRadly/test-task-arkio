@@ -6,12 +6,12 @@ import { BrowserRouter, Route } from "react-router-dom";
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-const App = () => {
+const App = (props) => {
   return (
       <BrowserRouter>
           <div className={AppCss.App}>
               <Route path={'/'} exact render={Main}/>
-              <Route path={'/wallet'} render={Wallet}/>
+              <Route state={props.state} path={'/wallet'} render={Wallet}/>
           </div>
       </BrowserRouter>
   );

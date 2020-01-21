@@ -3,7 +3,7 @@ import WalletCss from './Wallet.module.css';
 import Import from "./Import/Import";
 import Generate from "./Generate/Generate";
 
-const Wallet = () => {
+const Wallet = (props) => {
     return (
         <div className={WalletCss.wallet}>
             <div className={WalletCss.walletBox}>
@@ -17,7 +17,7 @@ const Wallet = () => {
                     </a>
                 </div>
                 <div className={WalletCss.renderLevel}>
-                    <Import buttonStyle={WalletCss.walletButton}/>
+                    <Import state={props.state} buttonStyle={WalletCss.walletButton}/>
                     <Generate/>
                 </div>
             </div>
