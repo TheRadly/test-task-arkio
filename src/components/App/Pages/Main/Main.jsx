@@ -3,7 +3,7 @@ import MainCss from './Main.module.css';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-let Main = () => {
+const Main = () => {
     return (
         <div className={MainCss.Main}>
             <div className={'d-flex justify-content-center'}>

@@ -2,7 +2,7 @@ import React from 'react';
 import HeaderCss from './Header.module.css';
 import WalletLogo from './images/IconWallet.png'
 
-let Header = () => {
+const Header = () => {
     return (
         <div className={HeaderCss.Header}>
             <div>
