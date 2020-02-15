@@ -4,7 +4,7 @@ import * as axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Generate = () => {
+const Generate = (props) => {
   let generateRandomWords = () => {
     axios.get('https://random-word-api.herokuapp.com/word?key=STB98C4Z&number=5')
     .then(words => {
@@ -28,7 +28,7 @@ const Generate = () => {
         <h5> Randomly phrases: </h5>
         <div className={GenerateCss.randWordsBox}>
             <ul>
-                <button onClick={generateRandomWords}>Generate words</button>
+                { generateRandomWords() }
             </ul>
         </div>
         <h5 className={"mt-3"}>
