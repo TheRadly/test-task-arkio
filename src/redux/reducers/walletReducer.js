@@ -46,6 +46,9 @@ let walletReducer = (state = initialState, action) => {
             state.generateData.publicKey = generatePublicKey;
 
             return state;
+
+        default:
+            return state;
     }
 };
 
