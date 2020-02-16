@@ -4,13 +4,13 @@ import * as axios from "axios";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const generateWordsURL = 'https://random-word-api.herokuapp.com/word?key=STB98C4Z&number=10';
+const generateWordsURL = 'https://random-word-api.herokuapp.com/word?key=V1JCCFU2&number=10';
 
 const Generate = (props) => {
   let generateRandomWords = () => {
     axios.get(generateWordsURL)
     .then(words => {
-        const list = words.data.map((word, index) => 
+        let list = words.data.map((word, index) => 
             <li key={index}>{word}</li>
         );
 
