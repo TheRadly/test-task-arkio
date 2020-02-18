@@ -1,22 +1,32 @@
 import React from 'react';
 import Generate from './Generate';
-import {connect} from 'react-redux';
-import {generateWalletButtonAC} from '../../../../../redux/reducers/WalletReducer';
+import { connect } from 'react-redux';
+import { generateWallet } from '../../../../../redux/reducers/walletReducer';
+import * as axios from "axios";
+
+const generateWordsURL = 'https://random-word-api.herokuapp.com/word?key=MQRNWJJW&number=10';
+
+class GenerateContainer extends React.Component {
+    componentDidMount() {
+        axios.get(generateWordsURL)
+        .then(words => {
+            this.props.generateWallet(words);
+        }).catch((error) => console.log(error));
+    };
+
+    render() {
+        return (
+            <Generate {...this.props}/>
+        );
+    };
+};
 
 let mapStateToProps = (state) => {
     return {
         walletAddress: state.walletPage.walletAddress,
         randomlyPhrases: state.walletPage.randomlyPhrases,
-        publicKey: state.publicKey.publicKey
+        publicKey: state.walletPage.publicKey
     }
 };
 
-let mapDispatchToProps = (dispatch) => {
-    return {
-        generateWallet: () => {
-            dispatch(generateWalletButtonAC);
-        }
-    }
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(Generate);
+export default connect(mapStateToProps, { generateWallet })(GenerateContainer);

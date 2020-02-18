@@ -1,7 +1,8 @@
-const GENERATE_WALLET_BUTTON = 'GENERATE-WALLET';
-const SET_RANDOMLY_PHRASES = 'SET-RANDOMLY-PHRASES';
+const GENERATE_WALLET = 'GENERATE-WALLET';
+const GENERATE_BUTTON_CLICKED = 'GENERATE-BUTTON-CLICKED';
 
 let initialState = {
+    isGenerateButton: false,
     walletAddress: '',
     randomlyPhrases: [],
     publicKey: ''
@@ -9,19 +10,26 @@ let initialState = {
 
 const walletReducer = ((state = initialState, action) => {
     switch(action.type) {
-        case GENERATE_WALLET_BUTTON:
+        case GENERATE_WALLET:
             return {
                 ...state,
-                walletAddress: state.walletAddress.push('0x57849372777111aaa88827'),
-                randomlyPhrases: [...action.randomlyPhrases],
+                walletAddress: state.walletAddress = '0x57849372777111aaa88827',
+                randomlyPhrases: action.phrasesArray,
                 publicKey: state.publicKey = 'SASI_YA_RABOTAYU'
             }
+        case GENERATE_BUTTON_CLICKED: {
+            return {
+                ...state,
+                isGenerateButton: action.isClicked
+            }
+        }
         default:
             return state;
     }
 });
 
-export const generateWalletButtonAC = () => ({type: GENERATE_WALLET_BUTTON});
+export const generateWallet = (phrasesArray) => ({type: GENERATE_WALLET, phrasesArray});
+export const generateButtonClicked = (isClicked) => ({type: GENERATE_BUTTON_CLICKED, isClicked});
 
 export default walletReducer;
 
