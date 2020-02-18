@@ -28,7 +28,7 @@ const walletReducer = ((state = initialState, action) => {
     }
 });
 
-export const generateWallet = (phrasesArray) => ({type: GENERATE_WALLET, phrasesArray});
+export const generateWallet = (phrasesArray = []) => ({type: GENERATE_WALLET, phrasesArray});
 export const generateButtonClicked = (isClicked) => ({type: GENERATE_BUTTON_CLICKED, isClicked});
 
 export default walletReducer;

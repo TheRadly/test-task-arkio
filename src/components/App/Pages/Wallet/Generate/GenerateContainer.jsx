@@ -4,10 +4,12 @@ import { connect } from 'react-redux';
 import { generateWallet } from '../../../../../redux/reducers/walletReducer';
 import * as axios from "axios";
 
-const generateWordsURL = 'https://random-word-api.herokuapp.com/word?key=MQRNWJJW&number=10';
+const generateWordsURL = 'https://random-word-api.herokuapp.com/word?key=MQRNWJJW&number=5';
 
 class GenerateContainer extends React.Component {
     componentDidMount() {
+        this.props.generateWallet();
+
         axios.get(generateWordsURL)
         .then(words => {
             this.props.generateWallet(words);

@@ -4,6 +4,10 @@ import GenerateCss from "./Generate.module.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 const Generate = (props) => {
+  if (props.randomlyPhrases.length <= 0) {
+    return <span> Loading ... </span>
+  }
+
   let generateRandomWords = () => {
       let list = props.randomlyPhrases.data.map((word, index) => (
         <li key={index}>{word}</li>
