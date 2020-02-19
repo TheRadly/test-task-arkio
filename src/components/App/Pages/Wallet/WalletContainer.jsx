@@ -1,7 +1,7 @@
 import React from 'react';
 import Wallet from './Wallet';
 import { connect } from 'react-redux';
-import { generateButtonClicked } from '../../../../redux/reducers/walletReducer';
+import { generateButtonClicked, importButtonClicked } from '../../../../redux/reducers/walletReducer';
 
 class WalletContainer extends React.Component {
     render() {
@@ -13,8 +13,9 @@ class WalletContainer extends React.Component {
 
 let mapStateToProps = (state) => {
     return {
-        isGenerateButton: state.walletPage.isGenerateButton
+        isGenerateButton: state.walletPage.isGenerateButton,
+        isImportButton: state.walletPage.isImportButton
     }
 };
 
-export default connect(mapStateToProps, { generateButtonClicked })(WalletContainer);
+export default connect(mapStateToProps, { generateButtonClicked, importButtonClicked })(WalletContainer);

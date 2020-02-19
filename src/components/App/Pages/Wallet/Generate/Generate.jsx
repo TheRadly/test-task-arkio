@@ -19,7 +19,7 @@ const Generate = (props) => {
   return (
     <div className={GenerateCss.generateLevel}>
       <div className={GenerateCss.newWalletTextBox}>
-        <h4> New wallet address: </h4>
+        <h4> Wallet address: </h4>
         <h4 className={GenerateCss.newWalletTextAddress}>
           { props.walletAddress }
         </h4>

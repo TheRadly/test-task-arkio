@@ -47,6 +47,12 @@
     color: white;
     background-color: white;
 }
+.activeWalletButton {
+    text-decoration: none;
+    background-position: 0 0;
+    color: white;
+    background-color: white;
+}
 .renderLevel {
     display: flex;
     justify-content: center;
