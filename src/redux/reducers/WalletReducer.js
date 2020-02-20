@@ -18,7 +18,7 @@ const walletReducer = ((state = initialState, action) => {
         case GENERATE_WALLET:
             return {
                 ...state,
-                walletAddress: state.walletAddress = '0x57849372777111aaa88827',
+                walletAddress: action.walletAddress,
                 randomlyPhrases: action.phrasesArray,
                 publicKey: action.publicKey
             }
@@ -52,7 +52,7 @@ const walletReducer = ((state = initialState, action) => {
     }
 });
 
-export const generateWallet = (phrasesArray, publicKey) => ({type: GENERATE_WALLET, phrasesArray, publicKey});
+export const generateWallet = (phrasesArray, publicKey, walletAddress) => ({type: GENERATE_WALLET, phrasesArray, publicKey, walletAddress});
 export const generateButtonClicked = (isGenerateButtonClicked) => ({type: GENERATE_BUTTON_CLICKED, isGenerateButtonClicked});
 export const importButtonClicked = (isImportButtonClicked) => ({type: IMPORT_BUTTON_CLICKED, isImportButtonClicked});
 export const importWallet = (address, publicKey) => ({type: IMPORT_WALLET, address, publicKey});
