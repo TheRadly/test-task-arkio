@@ -1,3 +1,5 @@
+import { generateAPI } from '../../api/api';
+
 const GENERATE_WALLET = 'GENERATE-WALLET';
 const GENERATE_BUTTON_CLICKED = 'GENERATE-BUTTON-CLICKED';
 const IMPORT_WALLET = 'IMPORT-WALLET';
@@ -52,11 +54,19 @@ const walletReducer = ((state = initialState, action) => {
     }
 });
 
-export const generateWallet = (phrasesArray, publicKey, walletAddress) => ({type: GENERATE_WALLET, phrasesArray, publicKey, walletAddress});
+export const generateWalletAccess = (phrasesArray, publicKey, walletAddress) => ({type: GENERATE_WALLET, phrasesArray, publicKey, walletAddress});
 export const generateButtonClicked = (isGenerateButtonClicked) => ({type: GENERATE_BUTTON_CLICKED, isGenerateButtonClicked});
 export const importButtonClicked = (isImportButtonClicked) => ({type: IMPORT_BUTTON_CLICKED, isImportButtonClicked});
 export const importWallet = (address, publicKey) => ({type: IMPORT_WALLET, address, publicKey});
 export const setImportAddress = (currentAddress) => ({type: SET_IMPORT_ADDRESS, currentAddress});
+
+export const generateWallet = (apiKey, countWords) => {
+    return (dispatch) => {
+        generateAPI.getRandomWords(apiKey, countWords).then((words) => {
+            dispatch(generateWalletAccess(words, generateAPI.generatePublicKey(), generateAPI.generateWalletAddress()));
+        }).catch((error) => console.log(error));
+    };
+};
 
 export default walletReducer;
 

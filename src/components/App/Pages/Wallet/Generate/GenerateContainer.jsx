@@ -2,16 +2,10 @@ import React from 'react';
 import Generate from './Generate';
 import { connect } from 'react-redux';
 import { generateWallet } from '../../../../../redux/reducers/walletReducer';
-import { generateAPI } from '../../../../../api/api';
-import * as axios from "axios";
-
-const generateWordsURL = 'https://random-word-api.herokuapp.com/word?key=MHLC5KDH&number=5';
 
 class GenerateContainer extends React.Component {
     componentDidMount() {
-        generateAPI.getRandomWords('UMV39GQA', 5).then((words) => {
-            this.props.generateWallet(words, generateAPI.generatePublicKey(), generateAPI.generateWalletAddress());
-        }).catch((error) => console.log(error));
+        this.props.generateWallet('F56FNUPX', 5);
     };
 
     render() {

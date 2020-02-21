@@ -1,11 +1,11 @@
-import * as axios from "axios";
+import * as axios from 'axios';
 
 const instance = axios.create({
     baseURL: 'https://random-word-api.herokuapp.com/'
 });
 
+// Hardcode simulation API request
 let customGenerator = (stroke) => {
-    // Hardcode API endpoint
     let d = new Date().getTime();
         
     if (window.performance && typeof window.performance.now === 'function') {

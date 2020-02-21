@@ -4,7 +4,6 @@ import GenerateContainer from "./Generate/GenerateContainer";
 import ImportContainer from './Import/ImportContainer';
 
 const Wallet = (props) => {
-    console.log(props);
     return (
         <div className={WalletCss.wallet}>
             <div className={WalletCss.walletBox}>
@@ -29,7 +28,7 @@ const Wallet = (props) => {
                     </button>
                 </div>
                 <div className={WalletCss.renderLevel}>
-                    { props.isImportButton && <ImportContainer buttonStyle={WalletCss.walletButton}/>}
+                    { props.isImportButton && <ImportContainer buttonStyle={WalletCss.walletButton}/> }
                     { props.isGenerateButton && <GenerateContainer/> }
                 </div>
             </div>
