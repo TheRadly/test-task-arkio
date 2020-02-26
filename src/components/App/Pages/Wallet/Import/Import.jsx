@@ -1,16 +1,24 @@
 import React from 'react';
 import ImportCss from './Import.module.css';
+import { Field, reduxForm } from 'redux-form'
 
 const Import = (props) => {
     return (
-        <div className={ImportCss.importLevel}>
+        <form onSubmit={props.handleSubmit} className={ImportCss.importLevel}>
             <span>Wallet address / public key: </span>
-            <input placeholder={' Write you\'re address/public key here...'} className={ImportCss.importInput} type="text"/>
-            <a href={'generate'} className={props.buttonStyle}>
+            <Field  placeholder={'Write you\'re address/public key here...'}
+                    className={ImportCss.importInput} 
+                    name='address'
+                    component='textarea'
+            />
+            <button onClick={() => {
+                        props.generateButtonClicked(true);
+                        props.importButtonClicked(false);
+                    }} className={props.buttonStyle}>
                 Import
-            </a>
-        </div>
+            </button>
+        </form>
     );
 };
 
-export default Import;
+export default reduxForm({form: 'importAddressForm'})(Import);

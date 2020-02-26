@@ -5,6 +5,10 @@
 }
 .importInput {
     width: 400px;
+    height: 27px;
     margin-left: 10px;
     margin-right: 10px;
+}
+::-webkit-input-placeholder {
+    text-align:center;
 }

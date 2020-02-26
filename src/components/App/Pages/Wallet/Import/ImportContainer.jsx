@@ -1,12 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { importWallet } from '../../../../../redux/reducers/walletReducer';
+import { generateButtonClicked, importWallet, importButtonClicked } from '../../../../../redux/reducers/walletReducer';
 import Import from './Import';
 
 class ImportContainer extends React.Component {
+    sendAddress(props) {
+
+    }
+
     render() {
         return (
-            <Import {...this.props}/>
+            <Import {...this.props} onSubmit={this.sendAddress}/>
         );
     };
 };
@@ -17,4 +21,7 @@ let mapStateToProps = (state) => {
     }
 };
 
-export default connect(mapStateToProps, { importWallet })(ImportContainer);
+export default connect(
+    mapStateToProps, 
+    { generateButtonClicked, importWallet, importButtonClicked }
+)(ImportContainer);

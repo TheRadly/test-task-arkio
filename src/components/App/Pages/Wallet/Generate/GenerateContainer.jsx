@@ -5,7 +5,7 @@ import { generateWallet } from '../../../../../redux/reducers/walletReducer';
 
 class GenerateContainer extends React.Component {
     componentDidMount() {
-        this.props.generateWallet('F56FNUPX', 5);
+        this.props.generateWallet('O62YOTEI', 5);
     };
 
     render() {
